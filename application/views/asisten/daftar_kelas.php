@@ -15,7 +15,7 @@
             <tbody>
                 <?php foreach ($daftar_input->result() as $daftar_input): ?>
                     <tr>
-                            <td><a href="<?= base_url('asisten/input_nilai/') . $daftar_input->kode_jadwal; ?>" class="text-decoration-none">
+                            <td><a href="<?= base_url('asisten/daftar_mhs/') . $daftar_input->kode_jadwal; ?>" class="text-decoration-none">
                                 <?= $daftar_input->nama_mka; ?>
                             </a></td>
                             <td class="text-center"><?= $daftar_input->plug; ?></td>

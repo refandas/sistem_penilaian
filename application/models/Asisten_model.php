@@ -19,8 +19,42 @@ class Asisten_model extends CI_Model {
         return $result;
     }
 
-    public function daftar_mhs()
+    public function daftar_mhs($kode_jadwal)
     {
         // output info mhs, nim, nilai, dsb
+        $query = "SELECT mhs.nim, mhs.nama, n.harian, n.kuis, n.responsi, n.project, n.nilai_akhir FROM manaj_nilai n
+                  INNER JOIN mahasiswa mhs ON mhs.nim = n.nim
+                  WHERE n.kode_jadwal = " . $kode_jadwal;
+        
+        $result = $this->db->query($query);
+        return $result;
+    }
+
+    public function daftar_nilai($nim)
+    {
+        $query = "SELECT mhs.nama AS 'nama', mhs.nim AS 'nim', harian, kuis, responsi, project, nilai_akhir FROM manaj_nilai n
+                  INNER JOIN mahasiswa mhs ON mhs.nim = n.nim
+                  WHERE n.nim = " . "'" . $nim . "'";
+
+        $result = $this->db->query($query)->row_array();
+        return $result;
+    }
+
+    public function save($data)
+    {
+        $query = "UPDATE manaj_nilai
+                  SET
+                    harian = " . $data['harian'] . ", " . "
+                    kuis = " . $data['kuis'] . ", " . "
+                    responsi = " . $data['responsi'] . ", " . "
+                    project = " . $data['project'] . ", " . "
+                    nilai_akhir = " . $data['nilai_akhir'] . "
+                  WHERE nim = " . "'" . $data['nim'] . "'";
+                    
+        $result = $this->db->query($query);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Input sukses</div>');
+
+        return $result;
     }
 }
