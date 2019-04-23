@@ -43,13 +43,14 @@ class Asisten extends CI_Controller {
         $this->load->view('templates/footer', $data);
     }
 
-    public function input_nilai($nim)
+    public function input_nilai($nim, $kode_jadwal)
     {
         $data = [
-            'user'  => $this->dashboard_model->get_user(),
-            'menu'  => $this->dashboard_model->get_menu(),
-            'nim'   => $nim,
-            'nilai' => $this->asisten_model->daftar_nilai($nim)
+            'user'          => $this->dashboard_model->get_user(),
+            'menu'          => $this->dashboard_model->get_menu(),
+            'nim'           => $nim,
+            'nilai'         => $this->asisten_model->daftar_nilai($nim),
+            'kode_jadwal'   => $kode_jadwal 
         ];
 
         $this->load->view('templates/header', $data);
@@ -59,7 +60,7 @@ class Asisten extends CI_Controller {
         $this->load->view('templates/footer', $data);
     }
 
-    public function save($nim)
+    public function save($nim, $kode_jadwal)
     {   
         $harian     = $this->input->post('harian');
         $kuis       = $this->input->post('kuis');
@@ -78,11 +79,19 @@ class Asisten extends CI_Controller {
             'kuis'          => $kuis,
             'responsi'      => $responsi,
             'project'       => $project,
-            'nilai_akhir'   => $nilai_akhir
+            'nilai_akhir'   => $nilai_akhir,
+            'kode_jadwal'   => $kode_jadwal
         ];
 
-        $this->asisten_model->save($data);
-        $back = "asisten/input_nilai/" . $nim;
+        $this->asisten_model->save($data, $kode_jadwal);
+        $back = "asisten/daftar_mhs/" . $kode_jadwal;
         redirect($back);
+    }
+
+    public function kirim_nilai($kode_jadwal)
+    {
+        $this->asisten_model->kirim_nilai($kode_jadwal);
+
+        redirect('asisten/tampil_daftar_kelas');
     }
 }

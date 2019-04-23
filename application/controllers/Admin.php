@@ -61,4 +61,9 @@ class Admin extends CI_Controller {
         $this->load->view('admin/kelola_asisten', $data);
     }
 
+    public function hapus_anggota($username)
+    {
+        $this->admin_model->hapus_anggota($username);
+        redirect('admin/kelola_pengguna');
+    }
 }

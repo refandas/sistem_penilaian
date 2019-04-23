@@ -5,7 +5,7 @@
           <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
           <!-- Content -->
-          <form action="" method="post" class="my-3">
+          <form action="asisten/kirim_nilai" method="post" class="my-3">
             <table class="table table-striped">
             <thead class="text-center">
                 <tr>
@@ -22,14 +22,14 @@
               <?php foreach ($nilai->result() as $nilai): ?>
                     <tr>
                     <td class="text-center"><?= $nilai->nim; ?></td>
-                    <td><a href="<?= base_url('asisten/input_nilai/') . $nilai->nim; ?>" class="text-decoration-none">
+                    <td><a href="<?= base_url('asisten/input_nilai/') . $nilai->nim . "/" . $jadwal; ?>" class="text-decoration-none">
                       <?= $nilai->nama; ?></a>
                     </td>
                     <td class="text-center"><?= $nilai->harian; ?></td>
                     <td class="text-center"><?= $nilai->kuis; ?></td>
                     <td class="text-center"><?= $nilai->responsi; ?></td>
                     <td class="text-center"><?= $nilai->project; ?></td>
-                    <td>
+                    <td class="text-center">
                       <?php
                         if($nilai->nilai_akhir > 80)
                           echo 'A';

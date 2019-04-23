@@ -24,16 +24,16 @@
                   <th scope="col">Nilai Akhir</th>
                   </tr>
               </thead>
-              <tbody class="text-center">
+              <tbody>
                 <?php foreach ($daftar_nilai->result() as $daftar_nilai): ?>
                       <tr>
-                      <td><?= $daftar_nilai->nim; ?></td>
+                      <td class="text-center"><?= $daftar_nilai->nim; ?></td>
                       <td><?= $daftar_nilai->nama_mhs; ?></td>
-                      <td><?= $daftar_nilai->harian; ?></td>
-                      <td><?= $daftar_nilai->kuis; ?></td>
-                      <td><?= $daftar_nilai->responsi; ?></td>
-                      <td><?= $daftar_nilai->project; ?></td>
-                      <td>
+                      <td class="text-center"><?= $daftar_nilai->harian; ?></td>
+                      <td class="text-center"><?= $daftar_nilai->kuis; ?></td>
+                      <td class="text-center"><?= $daftar_nilai->responsi; ?></td>
+                      <td class="text-center"><?= $daftar_nilai->project; ?></td>
+                      <td class="text-center">
                         <?php
                           if($daftar_nilai->nilai_akhir > 80)
                             echo 'A';

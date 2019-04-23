@@ -40,7 +40,7 @@ class Asisten_model extends CI_Model {
         return $result;
     }
 
-    public function save($data)
+    public function save($data, $kode_jadwal)
     {
         $query = "UPDATE manaj_nilai
                   SET
@@ -49,12 +49,22 @@ class Asisten_model extends CI_Model {
                     responsi = " . $data['responsi'] . ", " . "
                     project = " . $data['project'] . ", " . "
                     nilai_akhir = " . $data['nilai_akhir'] . "
-                  WHERE nim = " . "'" . $data['nim'] . "'";
+                  WHERE nim = " . "'" . $data['nim'] . "' AND kode_jadwal = " . "'" . $kode_jadwal ."'";
                     
         $result = $this->db->query($query);
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Input sukses</div>');
 
+        return $result;
+    }
+
+    public function kirim_nilai($kode_jadwal)
+    {
+        $query = "INSERT INTO manaj_nilai
+                  SET acc = 0
+                  WHERE kode_jadwal = " . $kode_jadwal;
+
+        $result = $this->db->query($query);
         return $result;
     }
 }

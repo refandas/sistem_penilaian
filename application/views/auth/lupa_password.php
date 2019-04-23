@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login</title>
+  <title>Lupa Password</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
@@ -36,19 +36,15 @@
               <div class="col-lg">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Lupa Password</h1>
                   </div>
 
-                  <?= $this->session->flashdata('message'); ?>
-
-                  <form class="user" action="<?= base_url('auth/login'); ?>" method="post">
+                  <form class="user" action="<?= base_url('auth/set_password_baru'); ?>" method="post">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" name="username" placeholder="Username">
                     </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                    
+                    <button type="submit" class="btn btn-primary btn-user btn-block">Lanjut</button>
                   </form>
 
                   <hr>
@@ -56,7 +52,7 @@
                     <a class="small" href="<?= base_url('auth/lupa_password'); ?>">Lupa Password?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="<?= base_url('auth/registrasi'); ?>">Buat Akun!</a>
+                    <a class="small" href="<?= base_url('registrasi'); ?>">Buat Akun!</a>
                   </div>
                 </div>
               </div>
@@ -65,6 +61,7 @@
         </div>
 
       </div>
+      cek_username
     </div>
 
   </div>

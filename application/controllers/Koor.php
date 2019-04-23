@@ -40,7 +40,7 @@ class Koor extends CI_Controller {
         $this->load->view('templates/topbar', $data);
         $this->load->view('koor/nilai_telah_acc', $data);
         $this->load->view('templates/footer');
-    }
+    }       
 
     public function acc_nilai($kode_jadwal)
     {

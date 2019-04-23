@@ -29,4 +29,12 @@ class Admin_model extends CI_Model {
         $result = $this->db->query($query);
         return $result;
     }
+
+    public function hapus_anggota($username)
+    {
+        $query = "DELETE FROM user 
+                  WHERE username = " . "'" . $username . "'";
+        
+        $this->db->query($query);
+    }
 }

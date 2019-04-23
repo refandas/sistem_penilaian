@@ -17,16 +17,16 @@
                 <th scope="col">Nilai Akhir</th>
                 </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody>
               <?php foreach ($nilai->result() as $nilai): ?>
                     <tr>
-                    <td><?= $nilai->nim; ?></td>
+                    <td class="text-center"><?= $nilai->nim; ?></td>
                     <td><?= $nilai->nama; ?></td>
-                    <td><?= $nilai->harian; ?></td>
-                    <td><?= $nilai->kuis; ?></td>
-                    <td><?= $nilai->responsi; ?></td>
-                    <td><?= $nilai->project; ?></td>
-                    <td>
+                    <td class="text-center"><?= $nilai->harian; ?></td>
+                    <td class="text-center"><?= $nilai->kuis; ?></td>
+                    <td class="text-center"><?= $nilai->responsi; ?></td>
+                    <td class="text-center"><?= $nilai->project; ?></td>
+                    <td class="text-center">
                       <?php
                         if($nilai->nilai_akhir > 80)
                           echo 'A';
@@ -39,10 +39,6 @@
                         else 
                           echo 'E';
                       ?>
-                    </td>
-                    <td>
-                        <a href="" class="text-decoration-none btn btn-danger">Delete</a>
-                        <a href="" class="text-decoration-none btn btn-success">Edit</a>
                     </td>
                     </tr>
                 <?php endforeach; ?>

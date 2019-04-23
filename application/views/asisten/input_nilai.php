@@ -4,7 +4,7 @@
           <!-- Page Heading -->
         <?= $this->session->flashdata('message'); ?>
 
-        <form action="<?= base_url('asisten/save/') . $nilai['nim']; ?>" method="post">
+        <form action="<?= base_url('asisten/save/') . $nilai['nim'] . "/" . $kode_jadwal; ?>" method="post">
             <div class="form-group">
                 <h5><?= $nilai['nim']; ?></h5>
                 <h5><?= $nilai['nama']; ?></h5>
