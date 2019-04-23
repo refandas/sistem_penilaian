@@ -16,7 +16,8 @@ class Auth_model extends CI_Model {
                 if(password_verify($data['password'], $result['password']))
                 {
                     $user = [
-                        'username'  => $data['username'],
+                        'username'    => $data['username'],
+                        'nama'        => $result['nama'],
                         'level_akses' => $data['level_akses']
                     ];
                     $this->session->set_userdata($user);

@@ -24,7 +24,7 @@
                         <?php echo $dosen->aktif == 1 ? "Aktif" : "Nonaktif"; ?>
                     </td>
                     <td>
-                        <a href="<?= base_url('admin/hapus_anggota/') . $dosen->username; ?>" class="text-decoration-none btn btn-danger">Delete</a>
+                        <a href="<?= base_url('admin/edit_user/') . $dosen->username; ?>" class="text-decoration-none btn btn-primary">Edit</a>
                     </td>
                     </tr>
                 <?php endforeach; ?>

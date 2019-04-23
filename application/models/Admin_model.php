@@ -37,4 +37,13 @@ class Admin_model extends CI_Model {
         
         $this->db->query($query);
     }
+
+    public function edit_user($username)
+    {
+        $query = "SELECT * FROM user
+                  WHERE username = " . "'" . $username . "'";
+
+        $result = $this->db->query($query)->row_array();
+        return $result;
+    }
 }
