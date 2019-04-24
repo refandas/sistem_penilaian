@@ -25,5 +25,23 @@ class Profil extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function save_edit($username)
+    {
+        $nama     = $this->input->post('nama');
+        $email    = $this->input->post('email');
+        $password = $this->input->post('password');
+
+        $data = [
+            'username' => $username,
+            'nama'     => $nama,
+            'email'    => $email,
+            'password' => password_hash($password, PASSWORD_DEFAULT)
+        ];
+
+        print_r($data);
+
+        $this->profil_model->save($data);
+        redirect('dashboard');
+    }
 
 }
