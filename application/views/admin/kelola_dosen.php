@@ -2,6 +2,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
+          <?= $this->session->flashdata('message'); ?>
           <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
           <!-- Content -->
@@ -25,9 +26,9 @@
                     </td>
                     <td class="text-center">
                         <?php if($dosen->aktif == 1): ?>
-                          <a href="<?= base_url('admin/nonaktif/') . $dosen->username; ?>" class="text-decoration-none btn btn-danger">Nonaktifkan</a>
+                          <a href="<?= base_url('admin/nonaktif/3/') . $dosen->username; ?>" class="text-decoration-none btn btn-danger">Nonaktifkan</a>
                         <?php elseif($dosen->aktif == 0): ?>
-                          <a href="<?= base_url('admin/aktifkan/') . $dosen->username; ?>" class="text-decoration-none btn btn-success">Aktifkan</a>
+                          <a href="<?= base_url('admin/aktifkan/3/') . $dosen->username; ?>" class="text-decoration-none btn btn-success">Aktifkan</a>
                         <?php endif; ?>
                     </td>
                     </tr>

@@ -1,7 +1,10 @@
 Yang perlu dikerjakan
-1. Edit user (done), perlu check lebih lanjut
-2. Memperbaiki login dan register
-3. Memperbaiki lihat nilai
+- Memperbaiki login dan register
+- Memperbaiki lihat nilai
+- Memperbaiki kelola pengguna asisten dan koorlab
+- Menambahkan error handling
 
 
-1. Memperbaiki aktivasi user (done)
+Done
+1. Memperbaiki aktivasi user
+2. Edit user

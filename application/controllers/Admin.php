@@ -73,15 +73,27 @@ class Admin extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    public function nonaktif($username)
+    public function nonaktif($level_akses, $username)
     {
         $this->admin_model->nonaktif_user($username);
-        redirect('admin/kelola_dosen');
+
+        if($level_akses == 2)
+            redirect('admin/kelola_koor');
+        else if($level_akses == 3)
+            redirect('admin/kelola_dosen');
+        else if($level_akses == 4)
+            redirect('admin/kelola_asisten');
     }
 
-    public function aktifkan($username)
+    public function aktifkan($level_akses, $username)
     {
         $this->admin_model->aktifkan_user($username);
-        redirect('admin/kelola_dosen');
+        
+        if($level_akses == 2)
+            redirect('admin/kelola_koor');
+        else if($level_akses == 3)
+            redirect('admin/kelola_dosen');
+        else if($level_akses == 4)
+            redirect('admin/kelola_asisten');
     }
 }

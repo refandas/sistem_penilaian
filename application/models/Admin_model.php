@@ -4,7 +4,9 @@ class Admin_model extends CI_Model {
 
     public function get_koor()
     {
-        $query = "SELECT * FROM user WHERE level_akses = 2";
+        $query = "SELECT * FROM user 
+                  WHERE level_akses = 2
+                  ORDER BY aktif, nama";
 
         $result = $this->db->query($query);
         return $result;
@@ -13,8 +15,8 @@ class Admin_model extends CI_Model {
     public function get_dosen()
     {
         $query = "SELECT * FROM user 
-                    WHERE level_akses = 3
-                    ORDER BY aktif, nama";
+                  WHERE level_akses = 3
+                  ORDER BY aktif, nama";
 
         $result = $this->db->query($query);
         return $result;
@@ -23,8 +25,8 @@ class Admin_model extends CI_Model {
     public function get_asisten()
     {
         $query = "SELECT * FROM user
-                    WHERE level_akses = 4
-                    ORDER BY nama";
+                  WHERE level_akses = 4
+                  ORDER BY aktif, nama";
 
         $result = $this->db->query($query);
         return $result;
@@ -46,6 +48,7 @@ class Admin_model extends CI_Model {
                   WHERE username = " . "'" . $username . "'";
 
         $this->db->query($query);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun berhasil dinonaktifkan</div>');
     }
 
     public function aktifkan_user($username)
@@ -55,5 +58,6 @@ class Admin_model extends CI_Model {
                   WHERE username = " . "'" . $username . "'";
 
         $this->db->query($query);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun berhasil diaktifkan</div>');
     }
 }

@@ -39,8 +39,6 @@ class Profil extends CI_Controller {
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ];
 
-        print_r($data);
-
         $this->profil_model->save($data);
         redirect('dashboard');
     }
