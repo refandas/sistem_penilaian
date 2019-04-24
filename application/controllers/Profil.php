@@ -13,7 +13,7 @@ class Profil extends CI_Controller {
     public function edit_profil($username)
     {
         $data = [
-            'judul'     => 'Edit User',
+            'judul'     => 'Edit Profil',
             'menu'      => $this->dashboard_model->get_menu(),
             'user'      => $this->profil_model->get_user($username)
         ];
@@ -32,6 +32,7 @@ class Profil extends CI_Controller {
         $password = $this->input->post('password');
 
         $data = [
+            'judul'    => 'Edit Profil',
             'username' => $username,
             'nama'     => $nama,
             'email'    => $email,

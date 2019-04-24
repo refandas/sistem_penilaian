@@ -16,8 +16,8 @@ class Auth_model extends CI_Model {
                 if(password_verify($data['password'], $result['password']))
                 {
                     $user = [
-                        'username'    => $data['username'],
                         'nama'        => $result['nama'],
+                        'username'    => $data['username'],
                         'level_akses' => $data['level_akses']
                     ];
                     $this->session->set_userdata($user);
@@ -44,6 +44,7 @@ class Auth_model extends CI_Model {
 
     public function stop_session()
     {
+        $this->session->unset_userdata('nama');
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('level_akses');
 
