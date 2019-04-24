@@ -12,11 +12,13 @@ class Penilaian extends CI_Controller {
 
     public function index()
     {
-        $data['judul']  = 'Daftar Nilai';
-        $data['user']   = $this->dashboard_model->get_user();
-        $data['menu']   = $this->dashboard_model->get_menu();
-        $data['tahun']  = $this->penilaian_model->get_tahun_ajar();
-        $data['mka']    = $this->penilaian_model->get_mka();
+        $data = [
+            'judul' => 'Daftar Nilai',
+            'user'  => $this->dashboard_model->get_user(),
+            'menu'  => $this->dashboard_model->get_menu(),
+            'tahun' => $this->penilaian_model->get_tahun_ajar(),
+            'mka'   => $this->penilaian_model->get_mka()
+        ];
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -32,20 +34,20 @@ class Penilaian extends CI_Controller {
         $plug       = $this->input->post('plug');
 
         $data = [
+            'judul'      => 'Daftar Nilai',
             'tahun_ajar' => $tahun_ajar,
             'kode_mka'   => $kode_mka,
-            'plug'       => $plug
+            'plug'       => $plug,
+            'user'       => $this->dashboard_model->get_user(),
+            'menu'       => $this->dashboard_model->get_menu()
         ];
 
         $data['nilai'] = $this->penilaian_model->get_nilai($data);
-
-        $data['judul']  = 'Daftar Nilai';
-        $data['user']   = $this->dashboard_model->get_user();
-        $data['menu']   = $this->dashboard_model->get_menu();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('daftar_nilai', $data);
+        $this->load->view('templates/footer');
     }
 }

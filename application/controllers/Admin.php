@@ -73,25 +73,15 @@ class Admin extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    public function hapus_anggota($username)
+    public function nonaktif($username)
     {
-        $this->admin_model->hapus_anggota($username);
-        redirect('admin/kelola_pengguna');
+        $this->admin_model->nonaktif_user($username);
+        redirect('admin/kelola_dosen');
     }
 
-    public function edit_user($username)
+    public function aktifkan($username)
     {
-        $data = [
-            'judul'     => 'Edit User',
-            'user'      => $this->dashboard_model->get_user(),
-            'menu'      => $this->dashboard_model->get_menu(),
-            'user'      => $this->admin_model->edit_user($username)
-        ];
-        
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/edit_user', $data);
-        $this->load->view('templates/footer');
+        $this->admin_model->aktifkan_user($username);
+        redirect('admin/kelola_dosen');
     }
 }

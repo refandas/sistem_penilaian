@@ -14,7 +14,7 @@ class Admin_model extends CI_Model {
     {
         $query = "SELECT * FROM user 
                     WHERE level_akses = 3
-                    ORDER BY nama";
+                    ORDER BY aktif, nama";
 
         $result = $this->db->query($query);
         return $result;
@@ -30,20 +30,30 @@ class Admin_model extends CI_Model {
         return $result;
     }
 
-    public function hapus_anggota($username)
-    {
-        $query = "DELETE FROM user 
-                  WHERE username = " . "'" . $username . "'";
-        
-        $this->db->query($query);
-    }
-
-    public function edit_user($username)
+    public function get_user($username)
     {
         $query = "SELECT * FROM user
                   WHERE username = " . "'" . $username . "'";
 
         $result = $this->db->query($query)->row_array();
         return $result;
+    }
+
+    public function nonaktif_user($username)
+    {
+        $query = "UPDATE user
+                  SET aktif = 0
+                  WHERE username = " . "'" . $username . "'";
+
+        $this->db->query($query);
+    }
+
+    public function aktifkan_user($username)
+    {
+        $query = "UPDATE user
+                  SET aktif = 1
+                  WHERE username = " . "'" . $username . "'";
+
+        $this->db->query($query);
     }
 }

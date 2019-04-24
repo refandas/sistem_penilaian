@@ -1,0 +1,5 @@
+Yang perlu dikerjakan
+1. Edit user
+2. Memperbaiki login dan register
+3. Memperbaiki aktivasi user
+4. Memperbaiki lihat nilai

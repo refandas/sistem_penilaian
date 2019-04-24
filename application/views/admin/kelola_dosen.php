@@ -8,7 +8,7 @@
 
           <table class="table table-striped">
             <thead>
-                <tr>
+                <tr class="text-center">
                 <th scope="col">Username</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Status</th>
@@ -18,13 +18,17 @@
             <tbody>
             <?php foreach ($dosen->result() as $dosen): ?>
                     <tr>
-                    <td><?= $dosen->username; ?></td>
+                    <td class="text-center"><?= $dosen->username; ?></td>
                     <td><?= $dosen->nama; ?></td>
-                    <td>
+                    <td class="text-center">
                         <?php echo $dosen->aktif == 1 ? "Aktif" : "Nonaktif"; ?>
                     </td>
-                    <td>
-                        <a href="<?= base_url('admin/edit_user/') . $dosen->username; ?>" class="text-decoration-none btn btn-primary">Edit</a>
+                    <td class="text-center">
+                        <?php if($dosen->aktif == 1): ?>
+                          <a href="<?= base_url('admin/nonaktif/') . $dosen->username; ?>" class="text-decoration-none btn btn-danger">Nonaktifkan</a>
+                        <?php elseif($dosen->aktif == 0): ?>
+                          <a href="<?= base_url('admin/aktifkan/') . $dosen->username; ?>" class="text-decoration-none btn btn-success">Aktifkan</a>
+                        <?php endif; ?>
                     </td>
                     </tr>
                 <?php endforeach; ?>
