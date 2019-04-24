@@ -27,5 +27,7 @@ class Dashboard extends CI_Controller {
             $this->load->view('dosen/index');
         else
             $this->load->view('asisten/index');
+        
+        $this->load->view('templates/footer');
     }
 }
