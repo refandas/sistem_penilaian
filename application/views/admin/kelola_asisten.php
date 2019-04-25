@@ -6,7 +6,9 @@
           <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
           <!-- Content -->
-
+        <div class="card shadow mb-4">
+          <div class="card-body">
+          <div class="table-responsive">
           <table class="table table-striped">
             <thead>
                 <tr class="text-center  ">
@@ -34,7 +36,10 @@
                     </tr>
                 <?php endforeach; ?>
             </tbody>
-        </table>
+          </table>
+          </div>
+          </div>
+        </div>
 
           <!-- End of Content -->
 

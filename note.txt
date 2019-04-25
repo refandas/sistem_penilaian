@@ -1,10 +1,11 @@
 Yang perlu dikerjakan
 - Memperbaiki login dan register
 - Memperbaiki lihat nilai
-- Memperbaiki kelola pengguna asisten dan koorlab
+- Memperbaiki bagian koorlab, diambil dari dosen, dsb
 - Menambahkan error handling
 
 
 Done
 1. Memperbaiki aktivasi user
 2. Edit user
+3. Memperbaiki kelola pengguna asisten dan koorlab
