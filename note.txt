@@ -7,5 +7,5 @@ Yang perlu dikerjakan
 
 Done
 1. Memperbaiki aktivasi user
-2. Edit user
+2. Edit user    
 3. Memperbaiki kelola pengguna asisten dan koorlab

@@ -63,12 +63,21 @@ class Auth_model extends CI_Model {
 
     public function set_password($data)
     {
-        $query = "UPDATE user
-                  SET password = " . "'" . $data['password'] . "'" .
-                 "WHERE username = " . "'" . $data['username'] . "'";
+        if(password_verify($data['password'], $data['ulang_pass']))
+        {
+            $query = "UPDATE user
+                      SET password = " . "'" . $data['ulang_pass'] . "'" .
+                     "WHERE username = " . "'" . $data['username'] . "'";
 
-        $result = $this->db->query($query);
-        return $result;
+            $this->db->query($query);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password berhasil diubah</div>');
+            redirect('/');
+        }
+        else
+        {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password tidak sama</div>');
+            redirect('auth/set_password_baru');
+        }
     }
 
     public function register($data)

@@ -40,22 +40,22 @@ class Auth extends CI_Controller {
     public function set_password_baru()
     {
         $data['username'] = $this->input->post('username');
-        
 
         $this->load->view('auth/set_password_baru', $data);
     }
 
     public function save_password_baru($username)
     {
-        $password_baru = $this->input->post('password1');
+        $password_baru  = $this->input->post('password1');
+        $ulang_password = $this->input->post('password2');
 
         $data = [
-            'username'  => $username,
-            'password'  => password_hash($password_baru, PASSWORD_DEFAULT)
+            'username'   => $username,
+            'password'   => $password_baru,
+            'ulang_pass' => password_hash($ulang_password, PASSWORD_DEFAULT)
         ];
 
         $this->auth_model->set_password($data);
-        redirect('/');
     }
 
     public function registrasi()
