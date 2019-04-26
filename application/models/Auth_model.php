@@ -73,10 +73,8 @@ class Auth_model extends CI_Model {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password berhasil diubah</div>');
             redirect('/');
         }
-        else
-        {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password tidak sama</div>');
-            redirect('auth/set_password_baru');
+        else {
+            redirect('/');
         }
     }
 

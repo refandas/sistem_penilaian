@@ -1,5 +1,5 @@
 Yang perlu dikerjakan
-- Memperbaiki login dan register
+- Memperbaiki lupa password, kurang bagian password tidak sama, dan registrasi
 - Memperbaiki lihat nilai
 - Memperbaiki bagian koorlab, diambil dari dosen, dsb
 - Menambahkan error handling

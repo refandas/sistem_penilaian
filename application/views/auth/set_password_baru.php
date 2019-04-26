@@ -14,9 +14,23 @@
   <!-- Custom fonts for this template-->
   <link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 
   <!-- Custom styles for this template-->
   <link href="<?= base_url('assets/css/sb-admin-2.css'); ?>" rel="stylesheet">
+  <script>
+    $(document).ready(function() {
+      $('#password1, #password2').on('keyup', function () {
+        if($('#password1').val() == $('#password2').val()) {
+          $('#message').html('Password sama').css('color', 'green');
+        }
+        else {
+          $('#message').html('Password berbeda').css('color', 'red');
+        }
+      })
+    });
+  </script>
 
 </head>
 
@@ -37,29 +51,25 @@
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Lupa Password</h1>
-                    <?= $this->session->flashdata('message'); ?>
                   </div>
 
                     <h5 class="mx-3"><?= $username; ?></h5>
 
-                  <form class="user" action="<?= base_url('auth/save_password_baru/') . $username; ?>" method="post">
+                  <form class="user" action="<?= base_url('auth/save_password_baru/') . $username; ?>" method="post" oninput='password2.setCustomValidity(password2.value != password1.value ? "Password tidak sama" : ""' class="validatedForm">
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" name="password1" placeholder="Password baru">
+                      <input type="password" class="form-control form-control-user" name="password1" id="password1" required placeholder="Password baru">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" name="password2" placeholder="Ulangi password">
+                      <input type="password" class="form-control form-control-user" name="password2" id="password2" placeholder="Ulangi password">
                     </div>
                     <div class="form-group">
-                      <input type="hidden" name="username" value="<?= $username; ?>">
+                      <span id="message"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-user btn-block">Set</button>
+                    <button id="btn_submit" type="submit" class="btn btn-primary btn-user btn-block">Ubah Password</button>
                   </form>
 
                   <hr>
-                  <div class="text-center">
-                    <a class="small" href="<?= base_url('auth/lupa_password'); ?>">Lupa Password?</a>
-                  </div>
                   <div class="text-center">
                     <a class="small" href="<?= base_url('registrasi'); ?>">Buat Akun!</a>
                   </div>
@@ -70,7 +80,6 @@
         </div>
 
       </div>
-      cek_username
     </div>
 
   </div>
