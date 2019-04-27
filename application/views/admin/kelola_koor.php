@@ -25,16 +25,32 @@
                         <?php echo $koor->aktif == 1 ? "Aktif" : "Nonaktif"; ?>
                     </td>
                     <td class="text-center">
-                    <?php if($koor->aktif == 1): ?>
-                          <a href="<?= base_url('admin/nonaktif/2/') . $koor->username; ?>" class="text-decoration-none btn btn-danger">Nonaktifkan</a>
-                        <?php elseif($koor->aktif == 0): ?>
-                          <a href="<?= base_url('admin/aktifkan/2/') . $koor->username; ?>" class="text-decoration-none btn btn-success">Aktifkan</a>
-                        <?php endif; ?>
+                      <a href="" class="text-decoration-none btn btn-primary">Ganti</a>
                     </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+        <form action="<?= base_url('admin/ganti_koor/') . $koor->username; ?>" id="ganti_koor" class="my-5" method="post">
+          <h4>Ganti Koor</h4>
+          <select name="koor_baru" id="nama_dosen" class="form-control">
+            <option value="null">Pilih dosen...</option>
+            <?php foreach($dosen->result() as $dosen): ?>
+              <option value="<?= $dosen->username; ?>"><?= $dosen->nama; ?></option>
+            <?php endforeach; ?>
+          </select>
+          <button type="submit" class="btn btn-primary my-3">Tetapkan Sebagai Koordinator</button>
+        </form>
+
+        <script type="text/javascript">
+              $("#plug_prak").hide();
+              $(document).ready(function(){
+                $("#pencarian_lanjut").click(function(){
+                  $("#plug_prak").toggle();
+                });
+              });
+          </script>
 
           <!-- End of Content -->
 

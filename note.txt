@@ -1,11 +1,11 @@
 Yang perlu dikerjakan
-- Memperbaiki lupa password, kurang bagian password tidak sama, dan registrasi
 - Memperbaiki lihat nilai
-- Memperbaiki bagian koorlab, diambil dari dosen, dsb
 - Menambahkan error handling
-
+- Menambahkan chart atau diagram untuk statistik nilai
 
 Done
 1. Memperbaiki aktivasi user
 2. Edit user    
 3. Memperbaiki kelola pengguna asisten dan koorlab
+4. Memperbaiki lupa password, kurang bagian password tidak sama, dan registrasi
+5. Memperbaiki bagian koorlab, diambil dari dosen, dsb

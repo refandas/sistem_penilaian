@@ -41,6 +41,21 @@ class Admin_model extends CI_Model {
         return $result;
     }
 
+    public function ganti_koor($data)
+    {
+        $query = "UPDATE user
+                  SET level_akses = 3
+                  WHERE username = " . "'" . $data['koor_lama'] . "'";
+        $this->db->query($query);
+
+        $query = "UPDATE user
+                  SET level_akses = 2
+                  WHERE username = " . "'" . $data['koor_baru'] . "'";
+        $this->db->query($query);
+
+        redirect('admin/kelola_koor');
+    }
+
     public function nonaktif_user($username)
     {
         $query = "UPDATE user

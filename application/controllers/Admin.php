@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
         $this->load->model('admin_model');
         $this->load->model('dashboard_model');
     }
-    
+
     public function kelola_pengguna()
     {
         $data = [
@@ -31,7 +31,8 @@ class Admin extends CI_Controller {
             'judul' => 'Kelola Koor',
             'user'  => $this->dashboard_model->get_user(),
             'menu'  => $this->dashboard_model->get_menu(),
-            'koor'  => $this->admin_model->get_koor()
+            'koor'  => $this->admin_model->get_koor(),
+            'dosen' => $this->admin_model->get_dosen()
         ];
 
         $this->load->view('templates/header', $data);
@@ -39,6 +40,18 @@ class Admin extends CI_Controller {
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/kelola_koor', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function ganti_koor($koor)
+    {
+        $koor_baru = $this->input->post('koor_baru');
+
+        $data = [
+            'koor_baru' => $koor_baru,
+            'koor_lama' => $koor
+        ];
+
+        $this->admin_model->ganti_koor($data);
     }
 
     public function kelola_dosen()
