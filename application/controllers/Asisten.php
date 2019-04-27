@@ -12,12 +12,12 @@ class Asisten extends CI_Controller {
 
     public function tampil_daftar_kelas()
     {
-        $data = [
+        $data = array(
             'judul'         => 'Input Nilai',
             'user'          => $this->dashboard_model->get_user(),
             'menu'          => $this->dashboard_model->get_menu(),
             'daftar_input'  => $this->asisten_model->daftar_input_nilai()
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -28,13 +28,13 @@ class Asisten extends CI_Controller {
 
     public function daftar_mhs($kode_jadwal)
     {
-        $data = [
+        $data = array(
             'judul'         => 'Input Nilai',
             'user'          => $this->dashboard_model->get_user(),
             'menu'          => $this->dashboard_model->get_menu(),
             'jadwal'        => $kode_jadwal,
             'nilai'         => $this->asisten_model->daftar_mhs($kode_jadwal)
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -45,13 +45,13 @@ class Asisten extends CI_Controller {
 
     public function input_nilai($nim, $kode_jadwal)
     {
-        $data = [
+        $data = array(
             'user'          => $this->dashboard_model->get_user(),
             'menu'          => $this->dashboard_model->get_menu(),
             'nim'           => $nim,
             'nilai'         => $this->asisten_model->daftar_nilai($nim),
             'kode_jadwal'   => $kode_jadwal 
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -72,7 +72,7 @@ class Asisten extends CI_Controller {
             25 / 100 * $project +
             35 / 100 * $responsi;
 
-        $data = [
+        $data = array(
             'judul'         => 'Input Nilai',
             'nim'           => $nim,
             'harian'        => $harian,
@@ -81,7 +81,7 @@ class Asisten extends CI_Controller {
             'project'       => $project,
             'nilai_akhir'   => $nilai_akhir,
             'kode_jadwal'   => $kode_jadwal
-        ];
+        );
 
         $this->asisten_model->save($data, $kode_jadwal);
         $back = "asisten/daftar_mhs/" . $kode_jadwal;

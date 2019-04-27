@@ -12,11 +12,11 @@ class Profil extends CI_Controller {
 
     public function edit_profil($username)
     {
-        $data = [
+        $data = array(
             'judul'     => 'Edit Profil',
             'menu'      => $this->dashboard_model->get_menu(),
             'user'      => $this->profil_model->get_user($username)
-        ];
+        );
         
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -31,13 +31,13 @@ class Profil extends CI_Controller {
         $email    = $this->input->post('email');
         $password = $this->input->post('password');
 
-        $data = [
+        $data = array(
             'judul'    => 'Edit Profil',
             'username' => $username,
             'nama'     => $nama,
             'email'    => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT)
-        ];
+        );
 
         $this->profil_model->save($data);
         redirect('dashboard');

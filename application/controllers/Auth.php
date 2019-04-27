@@ -19,10 +19,10 @@ class Auth extends CI_Controller {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        $data = [
+        $data = array(
             'username'  => $username,
             'password'  => $password
-        ];
+        );
 
         $this->auth_model->cek_login($data);
     }
@@ -49,11 +49,11 @@ class Auth extends CI_Controller {
         $password_baru  = $this->input->post('password1');
         $ulang_password = $this->input->post('password2');
 
-        $data = [
+        $data = array(
             'username'   => $username,
             'password'   => $password_baru,
             'ulang_pass' => password_hash($ulang_password, PASSWORD_DEFAULT)
-        ];
+        );
 
         $this->auth_model->set_password($data);
     }
@@ -71,14 +71,14 @@ class Auth extends CI_Controller {
         $password = $this->input->post('password');
         $level_akses = $this->input->post('level_akses');
 
-        $data = [
+        $data = array(
             'username' => $username,
             'name' => $name,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
             'level_akses' => $level_akses,
             'aktif' => 1
-        ];
+        );
         
         $this->auth_model->register($data);
         redirect('/');

@@ -12,11 +12,11 @@ class Admin extends CI_Controller {
 
     public function kelola_pengguna()
     {
-        $data = [
+        $data = array(
             'judul' => 'Kelola Pengguna',
             'user'  => $this->dashboard_model->get_user(),
             'menu'  => $this->dashboard_model->get_menu()
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -27,13 +27,13 @@ class Admin extends CI_Controller {
 
     public function kelola_koor()
     {
-        $data = [
+        $data = array(
             'judul' => 'Kelola Koor',
             'user'  => $this->dashboard_model->get_user(),
             'menu'  => $this->dashboard_model->get_menu(),
             'koor'  => $this->admin_model->get_koor(),
             'dosen' => $this->admin_model->get_dosen_pengganti_koor()
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -46,22 +46,22 @@ class Admin extends CI_Controller {
     {
         $koor_baru = $this->input->post('koor_baru');
 
-        $data = [
+        $data = array(
             'koor_baru' => $koor_baru,
             'koor_lama' => $koor
-        ];
+        );
 
         $this->admin_model->ganti_koor($data);
     }
 
     public function kelola_dosen()
     {
-        $data = [
+        $data = array(
             'judul' => 'Kelola Dosen',
             'user'  => $this->dashboard_model->get_user(),
             'menu'  => $this->dashboard_model->get_menu(),
             'dosen' => $this->admin_model->get_dosen()
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -72,12 +72,12 @@ class Admin extends CI_Controller {
 
     public function kelola_asisten()
     {
-        $data = [
+        $data = array(
             'judul'     => 'Kelola Asisten',
             'user'      => $this->dashboard_model->get_user(),
             'menu'      => $this->dashboard_model->get_menu(),
             'asisten'   => $this->admin_model->get_asisten()
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

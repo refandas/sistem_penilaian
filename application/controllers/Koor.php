@@ -12,12 +12,12 @@ class Koor extends CI_Controller {
 
     public function nilai_masuk()
     {
-        $data = [
+        $data = array(
             'judul' => 'Nilai Masuk',
             'user'  => $this->dashboard_model->get_user(),
             'menu'  => $this->dashboard_model->get_menu(),
             'nilai' => $this->koor_model->get_nilai_masuk()
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -28,12 +28,12 @@ class Koor extends CI_Controller {
 
     public function nilai_telah_acc()
     {
-        $data = [
+        $data = array(
             'judul' => 'Nilai Telah Acc',
             'user'  => $this->dashboard_model->get_user(),
             'menu'  => $this->dashboard_model->get_menu(),
             'nilai' => $this->koor_model->get_nilai_masuk()
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -44,7 +44,7 @@ class Koor extends CI_Controller {
 
     public function acc_nilai($kode_jadwal)
     {
-        $data = [
+        $data = array(
             'judul'         => 'Acc Nilai',
             'user'          => $this->dashboard_model->get_user(),
             'menu'          => $this->dashboard_model->get_menu(),
@@ -53,7 +53,7 @@ class Koor extends CI_Controller {
             'asisten'       => $this->koor_model->get_asisten($kode_jadwal),
             'plug'          => $this->koor_model->get_plug($kode_jadwal),
             'daftar_nilai'  => $this->koor_model->get_detail_kelas($kode_jadwal)
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -64,9 +64,9 @@ class Koor extends CI_Controller {
 
     public function save($kode_jadwal)
     {
-        $data = [
+        $data = array(
             'kode_jadwal'   => $kode_jadwal
-        ];
+        );
 
         $this->koor_model->acc($data);
 

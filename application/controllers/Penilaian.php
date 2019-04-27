@@ -12,13 +12,13 @@ class Penilaian extends CI_Controller {
 
     public function index()
     {
-        $data = [
+        $data = array(
             'judul' => 'Daftar Nilai',
             'user'  => $this->dashboard_model->get_user(),
             'menu'  => $this->dashboard_model->get_menu(),
             'tahun' => $this->penilaian_model->get_tahun_ajar(),
             'mka'   => $this->penilaian_model->get_mka()
-        ];
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -33,14 +33,14 @@ class Penilaian extends CI_Controller {
         $kode_mka   = $this->input->post('kode_mka');
         $plug       = $this->input->post('plug');
 
-        $data = [
+        $data = array(
             'judul'      => 'Daftar Nilai',
             'tahun_ajar' => $tahun_ajar,
             'kode_mka'   => $kode_mka,
             'plug'       => $plug,
             'user'       => $this->dashboard_model->get_user(),
             'menu'       => $this->dashboard_model->get_menu()
-        ];
+        );
 
         $data['nilai'] = $this->penilaian_model->get_nilai($data);
 

@@ -11,9 +11,11 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-        $data['judul']  = 'Dashboard';
-        $data['user']   = $this->dashboard_model->get_user();
-        $data['menu']   = $this->dashboard_model->get_menu();
+        $data = array(
+            'judul' => 'Dashboard',
+            'user'  => $this->dashboard_model->get_user(),
+            'menu'  => $this->dashboard_model->get_menu()
+        );
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
