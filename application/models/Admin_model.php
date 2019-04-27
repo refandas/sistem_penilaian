@@ -22,6 +22,16 @@ class Admin_model extends CI_Model {
         return $result;
     }
 
+    public function get_dosen_pengganti_koor()
+    {
+        $query = "SELECT * FROM user
+                  WHERE level_akses = 3 AND aktif = 1
+                  ORDER BY nama";
+
+        $result = $this->db->query($query);
+        return $result;
+    }
+
     public function get_asisten()
     {
         $query = "SELECT * FROM user
@@ -43,15 +53,24 @@ class Admin_model extends CI_Model {
 
     public function ganti_koor($data)
     {
-        $query = "UPDATE user
-                  SET level_akses = 3
-                  WHERE username = " . "'" . $data['koor_lama'] . "'";
-        $this->db->query($query);
+        if(strcmp($data['koor_baru'], "null") != 0)
+        {
+            $query = "UPDATE user
+            SET level_akses = 3
+            WHERE username = " . "'" . $data['koor_lama'] . "'";
+            $this->db->query($query);
 
-        $query = "UPDATE user
-                  SET level_akses = 2
-                  WHERE username = " . "'" . $data['koor_baru'] . "'";
-        $this->db->query($query);
+            $query = "UPDATE user
+                        SET level_akses = 2
+                        WHERE username = " . "'" . $data['koor_baru'] . "'";
+            $this->db->query($query);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Koordinator berhasil diganti</div>');
+        }
+        else
+        {
+            $this->session->set_flashdata('message', '<div class="alert alert-warning" role="alert">Pilih pengganti koordinator terlebih dahulu</div>');
+        }
 
         redirect('admin/kelola_koor');
     }

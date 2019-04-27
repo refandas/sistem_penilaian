@@ -1,5 +1,6 @@
 Yang perlu dikerjakan
 - Memperbaiki lihat nilai
+- Memperbaiki data modal untuk kelola koor
 - Menambahkan error handling
 - Menambahkan chart atau diagram untuk statistik nilai
 
@@ -9,3 +10,4 @@ Done
 3. Memperbaiki kelola pengguna asisten dan koorlab
 4. Memperbaiki lupa password, kurang bagian password tidak sama, dan registrasi
 5. Memperbaiki bagian koorlab, diambil dari dosen, dsb
+6. Menambahkan data modal pada kelola koor

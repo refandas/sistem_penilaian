@@ -32,7 +32,7 @@ class Admin extends CI_Controller {
             'user'  => $this->dashboard_model->get_user(),
             'menu'  => $this->dashboard_model->get_menu(),
             'koor'  => $this->admin_model->get_koor(),
-            'dosen' => $this->admin_model->get_dosen()
+            'dosen' => $this->admin_model->get_dosen_pengganti_koor()
         ];
 
         $this->load->view('templates/header', $data);

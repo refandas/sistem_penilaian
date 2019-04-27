@@ -25,7 +25,7 @@
                         <?php echo $koor->aktif == 1 ? "Aktif" : "Nonaktif"; ?>
                     </td>
                     <td class="text-center">
-                      <a href="" class="text-decoration-none btn btn-primary">Ganti</a>
+                      <button id="ganti" class="btn btn-primary">Ganti</button>
                     </td>
                     </tr>
                 <?php endforeach; ?>
@@ -35,19 +35,38 @@
         <form action="<?= base_url('admin/ganti_koor/') . $koor->username; ?>" id="ganti_koor" class="my-5" method="post">
           <h4>Ganti Koor</h4>
           <select name="koor_baru" id="nama_dosen" class="form-control">
-            <option value="null">Pilih dosen...</option>
+            <option selected value="null">Pilih dosen...</option>
             <?php foreach($dosen->result() as $dosen): ?>
               <option value="<?= $dosen->username; ?>"><?= $dosen->nama; ?></option>
             <?php endforeach; ?>
           </select>
-          <button type="submit" class="btn btn-primary my-3">Tetapkan Sebagai Koordinator</button>
+          <button type="submit" class="btn btn-primary my-3" data-toggle="modal" data-target="#gantiKoorModal">Tetapkan Sebagai Koordinator</button>
         </form>
 
+        <!-- Ganti Koor Modal -->
+        <div class="modal fade" id="gantiKoorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Yakin ganti koor?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">Pilih "Ganti Koor" untuk melanjutkan.</div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                  <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Ganti Koor</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <script type="text/javascript">
-              $("#plug_prak").hide();
+              $("#ganti_koor").hide();
               $(document).ready(function(){
-                $("#pencarian_lanjut").click(function(){
-                  $("#plug_prak").toggle();
+                $("#ganti").click(function(){
+                  $("#ganti_koor").toggle();
                 });
               });
           </script>
