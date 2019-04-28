@@ -109,4 +109,38 @@ class Admin extends CI_Controller {
         else if($level_akses == 4)
             redirect('admin/kelola_asisten');
     }
+
+    public function kelola_jadwal_asisten()
+    {
+        $daftar_asisten = $this->admin_model->get_asisten();
+        $daftar_jadwal  = $this->admin_model->get_jadwal();
+
+        $data = array(
+            'judul'          => 'Kelola Jadwal',
+            'user'           => $this->dashboard_model->get_user(),
+            'menu'           => $this->dashboard_model->get_menu(),
+            'daftar_asisten' => $daftar_asisten,
+            'daftar_jadwal'  => $daftar_jadwal,
+        );
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/kelola_jadwal_asisten', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function set_jadwal_asisten()
+    {
+        $username       = $this->input->post('username');
+        $kode_jadwal    = $this->input->post('kode_jadwal');
+
+        $data = array(
+            'username'       => $username,
+            'kode_jadwal'    => $kode_jadwal
+        );
+
+        $this->admin_model->set_jadwal_asisten($data);
+        redirect('admin/daftar_jadwal');
+    }
 }

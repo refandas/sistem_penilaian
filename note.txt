@@ -1,8 +1,6 @@
 Yang perlu dikerjakan
 - Memperbaiki lihat nilai
-- Memperbaiki data modal untuk kelola koor
 - Menambahkan error handling atau modal untuk konfirmasi
-- Perbaikan pada chart
 - Menambahkan fitur pengatur jadwal
 
 Done
@@ -13,3 +11,5 @@ Done
 5. Memperbaiki bagian koorlab, diambil dari dosen, dsb
 6. Menambahkan data modal pada kelola koor
 7. Menambahkan chart atau diagram untuk statistik nilai
+8. Perbaikan pada chart
+9. Memperbaiki data modal untuk kelola koor

@@ -94,4 +94,23 @@ class Admin_model extends CI_Model {
         $this->db->query($query);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun berhasil diaktifkan</div>');
     }
+
+    public function get_jadwal()
+    {
+        $query = "SELECT  j.kode_jadwal, m.nama, j.plug, j.hari, j.waktu, j.tempat, j.tahun_ajar FROM jadwal j
+                  INNER JOIN mka_praktikum m ON m.kode_mka = j.kode_mka
+                  ORDER BY j.tahun_ajar, m.nama";
+
+        $result = $this->db->query($query);
+        return $result; 
+    }
+
+    public function set_jadwal_asisten($data)
+    {
+        $query = "INSERT INTO kelas_prak
+                  VALUES (" . "'" . $data['username'] . "', " . $data['kode_jadwal'] . ")";
+
+        $this->db->query($query);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun berhasil diaktifkan</div>');
+    }
 }
