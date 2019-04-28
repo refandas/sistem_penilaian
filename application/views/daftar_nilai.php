@@ -1,12 +1,21 @@
+<script type="text/javascript">
+
+    $(document).ready(function() {
+      $('#table-data').DataTable();
+    });
+  </script>
+
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container-fluid my-3">
         
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
           <!-- Chart -->
-          <div style="width: 20%;">
+          <div class="card shadow mb-4">
+          <div style="width: 25%;" class="card-body">
             <canvas id="myChart" width="1" height="1"></canvas>
+          </div>
           </div>
 
           <script>
@@ -75,7 +84,7 @@
           <!-- End of Chart -->
 
           <!-- Content -->
-            <table id="table-data" class="table table-striped table-bordered">
+            <table id="table-data" class="table table-striped table-bordered" style="width:100%">
             <thead class="text-center">
                 <tr>
                 <th scope="col">NIM</th>
@@ -123,9 +132,3 @@
 
       </div>
       <!-- End of Main Content -->
-
-      <script>
-        $(document).ready(function() {
-          $('#table-data').DataTable();
-        });
-      </script>

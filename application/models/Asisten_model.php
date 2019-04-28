@@ -7,6 +7,7 @@ class Asisten_model extends CI_Model {
         $query = "SELECT 
                     j.kode_jadwal,
                     mka.nama AS 'nama_mka',
+                    j.tahun_ajar,
                     u.username,
                     plug
                   FROM jadwal j

@@ -9,6 +9,7 @@
             <thead>
                 <tr class="text-center">
                 <th scope="col">Mata Kuliah</th>
+                <th scope="col">Tahun Ajar</th>
                 <th scope="col">Plug</th>
                 </tr>
             </thead>
@@ -18,6 +19,7 @@
                             <td><a href="<?= base_url('asisten/daftar_mhs/') . $daftar_input->kode_jadwal; ?>" class="text-decoration-none">
                                 <?= $daftar_input->nama_mka; ?>
                             </a></td>
+                            <td class="text-center"><?= $daftar_input->tahun_ajar; ?></td>
                             <td class="text-center"><?= $daftar_input->plug; ?></td>
                     </tr>
                     
