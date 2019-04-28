@@ -11,9 +11,7 @@
 
           <script>
             var ctx = document.getElementById('myChart');
-            var myChart = new Chart(ctx, {
-              type: 'bar',
-              data: {
+            var data1 = {
                 labels: ['A', 'B', 'C', 'D', 'E'],
                 datasets: [{
                   label: '# Jumlah',
@@ -36,39 +34,48 @@
                     ?>
                   ],
                   backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                    'rgba(51,255,0,0.9)',
+                    'rgba(51,153,255,0.9)',
+                    'rgba(255,255,0,0.9)',
+                    'rgba(255,153,0,0.9)',
+                    'rgba(255,0,0,0.9)'
                   ],
-                  borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                  ],
-                    borderWidth: 1
+                  borderWidth: [1, 1, 1, 1, 1]
                 }]
+            };
+
+            var options = {
+              responsive: true,
+              title: {
+                display: true,
+                position: "top",
+                text: "Statistik nilai",
+                fontSize: 18,
+                fontColor: "#111"
               },
-              options: {
-                scales: {
-                  yAxes: [{
-                    ticks: {
-                      beginAtZero: true
-                    }
-                  }]
+              legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                  fontColor: "#333",
+                  fontSize: 16
                 }
               }
-            })
+            };
+
+            // create chart class object
+            var chart = new Chart(ctx, {
+              type: "pie",
+              data: data1,
+              options: options
+            });
 
           </script>
 
           <!-- End of Chart -->
 
           <!-- Content -->
-            <table class="table table-striped">
+            <table id="table-data" class="table table-striped table-bordered">
             <thead class="text-center">
                 <tr>
                 <th scope="col">NIM</th>
@@ -116,3 +123,9 @@
 
       </div>
       <!-- End of Main Content -->
+
+      <script>
+        $(document).ready(function() {
+          $('#table-data').DataTable();
+        });
+      </script>
