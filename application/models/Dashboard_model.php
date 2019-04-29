@@ -13,7 +13,7 @@ class Dashboard_model extends CI_Model {
 
     public function get_menu()
     {
-        $query = "SELECT m.id_menu, link, nama_menu FROM user u
+        $query = "SELECT m.id_menu, link, nama_menu, icon FROM user u
                     INNER JOIN hak_akses h ON h.level_akses = u.level_akses
                     INNER JOIN daftar_akses d ON d.level_akses = h.level_akses
                     INNER JOIN menu m ON m.id_menu = d.id_menu

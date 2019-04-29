@@ -17,7 +17,7 @@
       <?php foreach ($menu as $data): ?>
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url($data['link']); ?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="<?= $data['icon'] . " fa-fw"; ?>"></i>
           <span><?= $data['nama_menu']; ?></span></a>
       </li>
       <?php endforeach; ?>

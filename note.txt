@@ -1,7 +1,7 @@
 Yang perlu dikerjakan
 - Memperbaiki lihat nilai
 - Menambahkan error handling atau modal untuk konfirmasi
-- Menambahkan fitur pengatur jadwal
+- Memperbaiki sidebar
 
 Done
 1. Memperbaiki aktivasi user
@@ -13,3 +13,4 @@ Done
 7. Menambahkan chart atau diagram untuk statistik nilai
 8. Perbaikan pada chart
 9. Memperbaiki data modal untuk kelola koor
+10. Menambahkan fitur pengatur jadwal
